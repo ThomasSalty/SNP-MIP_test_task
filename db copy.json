@@ -2,249 +2,129 @@
 	"clients": [
 		{
 			"id": 1,
-			"title": "Client #1",
-			"reports": [
-				{
-					"id": 12345,
-					"reportTitle": "Report #12345",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						},
-						{
-							"id": 4,
-							"value": 456
-						}
-					]
-				},
-				{
-					"id": 23456,
-					"reportTitle": "Report #23456",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				},
-				{
-					"id": 34567,
-					"reportTitle": "Report #34567",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				},
-				{
-					"id": 45678,
-					"reportTitle": "Report #45678",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				}
-			]
+			"title": "Client #1"
 		},
 		{
 			"id": 2,
-			"title": "Client #2",
-			"reports": [
-				{
-					"id": 12345,
-					"reportTitle": "Report #12345",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						},
-						{
-							"id": 4,
-							"value": 456
-						}
-					]
-				},
-				{
-					"id": 23456,
-					"reportTitle": "Report #23456",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				},
-				{
-					"id": 34567,
-					"reportTitle": "Report #34567",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				},
-				{
-					"id": 45678,
-					"reportTitle": "Report #45678",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				}
-			]
+			"title": "Client #2"
 		},
 		{
 			"id": 3,
-			"title": "Client #3",
-			"reports": [
-				{
-					"id": 12345,
-					"reportTitle": "Report #12345",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						},
-						{
-							"id": 4,
-							"value": 456
-						}
-					]
-				},
-				{
-					"id": 23456,
-					"reportTitle": "Report #23456",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				},
-				{
-					"id": 34567,
-					"reportTitle": "Report #34567",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				},
-				{
-					"id": 45678,
-					"reportTitle": "Report #45678",
-					"reportData": [
-						{
-							"id": 1,
-							"value": 123
-						},
-						{
-							"id": 2,
-							"value": 234
-						},
-						{
-							"id": 3,
-							"value": 345
-						}
-					]
-				}
-			]
+			"title": "Client #3"
+		}
+	],
+	"reports": [
+		{
+			"id": 12345,
+			"reportTitle": "Report #12345",
+			"clientId": 1
+		},
+		{
+			"id": 23456,
+			"reportTitle": "Report #23456",
+			"clientId": 1
+		},
+		{
+			"id": 34567,
+			"reportTitle": "Report #34567",
+			"clientId": 1
+		},
+		{
+			"id": 45678,
+			"reportTitle": "Report #45678",
+			"clientId": 1
+		},
+		{
+			"id": 12345,
+			"reportTitle": "Report #12345",
+			"clientId": 2
+		},
+		{
+			"id": 23456,
+			"reportTitle": "Report #23456",
+			"clientId": 2
+		},
+		{
+			"id": 34567,
+			"reportTitle": "Report #34567",
+			"clientId": 2
+		},
+		{
+			"id": 45678,
+			"reportTitle": "Report #45678",
+			"clientId": 2
+		},
+		{
+			"id": 12345,
+			"reportTitle": "Report #12345",
+			"clientId": 3
+		},
+		{
+			"id": 23456,
+			"reportTitle": "Report #23456",
+			"clientId": 3
+		},
+		{
+			"id": 34567,
+			"reportTitle": "Report #34567",
+			"clientId": 3
+		},
+		{
+			"id": 45678,
+			"reportTitle": "Report #45678",
+			"clientId": 3
+		}
+	],
+	"reportData": [
+		{
+			"id": 101,
+			"value": 123,
+			"reportId": 12345
+		},
+		{
+			"id": 102,
+			"value": 234,
+			"reportId": 12345
+		},
+		{
+			"id": 103,
+			"value": 345,
+			"reportId": 12345
+		},
+		{
+			"id": 104,
+			"value": 456,
+			"reportId": 12345
+		},
+		{
+			"id": 105,
+			"value": 123,
+			"reportId": 23456
+		},
+		{
+			"id": 106,
+			"value": 234,
+			"reportId": 23456
+		},
+		{
+			"id": 107,
+			"value": 345,
+			"reportId": 23456
+		},
+		{
+			"id": 108,
+			"value": 123,
+			"reportId": 34567
+		},
+		{
+			"id": 109,
+			"value": 234,
+			"reportId": 34567
+		},
+		{
+			"id": 110,
+			"value": 345,
+			"reportId": 34567
 		}
 	]
 }
