@@ -1,0 +1,18 @@
+.headerContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.newClientButton {
+	flex: 0.6;
+}
+
+.searchInput {
+	background: {
+		image: url("../../public/search-icon.svg");
+		position: right 5px center;
+		repeat: no-repeat;
+		size: 20px;
+	}
+	flex-basis: 50%;
+}
