@@ -1,10 +1,14 @@
-import "./App.css";
+import Header from "./components/Header";
+import Clients from "./components/Clients";
+
+import styles from "./app.module.scss";
 
 function App() {
 	return (
-		<>
-			<div>SNP-MIP test task</div>
-		</>
+		<div className={styles.container}>
+			<Header />
+			<Clients />
+		</div>
 	);
 }
 
