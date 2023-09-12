@@ -1,0 +1,58 @@
+@use "../../styles/colors.scss";
+@use "../../styles/sizes.scss";
+
+.details {
+	border: 2px solid black;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.summary {
+	background-color: colors.$main-accent;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 10px 10px 40px;
+
+	&::before {
+		border: {
+			color: transparent transparent black transparent;
+			radius: 1px;
+			style: solid;
+			width: 0 10px 15px;
+		}
+		content: "";
+		left: 10px;
+		position: absolute;
+		rotate: 0.5turn;
+		top: 15px;
+		transition: rotate 0.5s ease;
+	}
+
+	[open] > &::before {
+		rotate: 0deg;
+	}
+}
+
+.options {
+	background-color: darken($color: colors.$main-accent, $amount: 10%);
+	padding: 0 25px 10px;
+}
+
+.closeIcon {
+	vertical-align: middle;
+	width: 20px;
+}
+
+.windowHeader {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding-block: 15px;
+}
+
+.reportDataItems {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
+}
