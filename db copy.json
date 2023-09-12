@@ -125,6 +125,21 @@
 			"id": 110,
 			"value": 345,
 			"reportId": 34567
+		},
+		{
+			"id": 111,
+			"value": 123,
+			"reportId": 45678
+		},
+		{
+			"id": 112,
+			"value": 234,
+			"reportId": 45678
+		},
+		{
+			"id": 113,
+			"value": 345,
+			"reportId": 45678
 		}
 	]
 }
