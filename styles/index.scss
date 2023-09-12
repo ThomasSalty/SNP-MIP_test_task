@@ -1,10 +1,13 @@
+@use "colors";
+@use "sizes";
+
 :root {
 	background-color: #242424;
 	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
 
 	font: {
 		family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+		size: 1em;
 		synthesis: none;
 		weight: 400;
 	}
@@ -18,6 +21,11 @@
 
 * {
 	box-sizing: border-box;
+}
+
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
 }
 
 a {
@@ -44,7 +52,7 @@ h1 {
 }
 
 button {
-	background-color: #1a1a1a;
+	background-color: colors.$main-accent;
 	border-radius: 8px;
 	border: 1px solid transparent;
 	cursor: pointer;
@@ -53,16 +61,21 @@ button {
 		size: 1em;
 		weight: 500;
 	}
-	padding: 0.6em 1.2em;
+	padding: sizes.$button-input-padding;
 	transition: border-color 0.25s;
 
 	&:hover {
-		border-color: #646cff;
+		border-color: colors.$white;
 	}
 	&:focus,
 	&:focus-visible {
 		outline: 4px auto -webkit-focus-ring-color;
 	}
+}
+
+input {
+	font-size: 1em;
+	padding: sizes.$button-input-padding;
 }
 
 @media (prefers-color-scheme: light) {
