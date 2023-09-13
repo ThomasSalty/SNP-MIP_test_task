@@ -15,11 +15,16 @@ function Clients() {
 	return (
 		<div className={styles.clientWrapper}>
 			{clients.map((client) => (
-				<Window key={client.id} title={client.title}>
+				<Window id={client.id} key={client.id} title={client.title}>
 					{reports
 						.filter((clientReport) => clientReport.clientId === client.id)
 						.map((report) => (
-							<Window key={report.id} title={report.reportTitle} isReport>
+							<Window
+								id={report.id}
+								key={report.id}
+								title={report.reportTitle}
+								isReport
+							>
 								{reportData
 									.filter((reportData) => reportData.reportId === report.id)
 									.map((data) => (

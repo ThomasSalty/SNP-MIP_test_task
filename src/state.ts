@@ -64,10 +64,20 @@ const dbSlice = createSlice({
 			state.clients = action.payload.clients;
 			state.reports = action.payload.reports;
 			state.reportData = action.payload.reportData;
+		},
+		deletedClient(state, action: PayloadAction<{ clientId: number }>) {
+			state.clients = state.clients.filter(
+				(client) => client.id !== action.payload.clientId
+			);
+		},
+		deletedReport(state, action: PayloadAction<{ reportId: number }>) {
+			state.reports = state.reports.filter(
+				(report) => report.id !== action.payload.reportId
+			);
 		}
 	}
 });
-export const { receivedDbData } = dbSlice.actions;
+export const { receivedDbData, deletedClient, deletedReport } = dbSlice.actions;
 
 export const store = configureStore({
 	reducer: {
@@ -98,8 +108,3 @@ export const getReportData = createSelector(
 	(state: RootState) => state.db.reportData,
 	(reportData) => reportData
 );
-/* export const getTotalPages = createSelector(
-	(state: RootState) => state.movieList.totalAmount,
-	(state: RootState) => state.movieList.limit,
-	(totalAmount, limit) => Math.ceil(totalAmount / limit)
-); */

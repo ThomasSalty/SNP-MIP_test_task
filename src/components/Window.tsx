@@ -1,13 +1,17 @@
 import styles from "./window.module.scss";
 import CloseIcon from "../../public/close-icon.svg";
+import { deletedClient, deletedReport, useAppDispatch } from "../state";
 
 interface WindowProps {
+	id: number;
 	title: string;
 	isReport?: boolean;
 	children?: React.ReactNode[];
 }
 
-function Window({ title, isReport, children }: WindowProps) {
+function Window({ id, title, isReport, children }: WindowProps) {
+	const appDispatch = useAppDispatch();
+
 	return (
 		<details className={styles.details}>
 			<summary className={styles.summary}>
@@ -15,9 +19,11 @@ function Window({ title, isReport, children }: WindowProps) {
 				<img
 					src={CloseIcon}
 					className={styles.closeIcon}
-					onClick={() => {
-						alert("remove element");
-					}}
+					onClick={() =>
+						isReport
+							? appDispatch(deletedReport({ reportId: id }))
+							: appDispatch(deletedClient({ clientId: id }))
+					}
 				/>
 			</summary>
 
