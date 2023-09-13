@@ -1,5 +1,5 @@
 import styles from "./window.module.scss";
-import CloseIcon from "../../public/close-icon.svg";
+import CloseIcon from "../assets/close-icon.svg";
 import {
 	addedReportToClient,
 	deletedClient,
