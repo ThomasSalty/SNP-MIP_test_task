@@ -3,13 +3,20 @@ import CloseIcon from "../../public/close-icon.svg";
 import { deletedClient, deletedReport, useAppDispatch } from "../state";
 
 interface WindowProps {
-	id: number;
+	clientId: number;
+	reportId: number;
 	title: string;
 	isReport?: boolean;
-	children?: React.ReactNode[];
+	children?: React.ReactNode;
 }
 
-function Window({ id, title, isReport, children }: WindowProps) {
+function Window({
+	clientId,
+	reportId,
+	title,
+	isReport,
+	children
+}: WindowProps) {
 	const appDispatch = useAppDispatch();
 
 	return (
@@ -21,8 +28,8 @@ function Window({ id, title, isReport, children }: WindowProps) {
 					className={styles.closeIcon}
 					onClick={() =>
 						isReport
-							? appDispatch(deletedReport({ reportId: id }))
-							: appDispatch(deletedClient({ clientId: id }))
+							? appDispatch(deletedReport({ clientId, reportId }))
+							: appDispatch(deletedClient({ clientId }))
 					}
 				/>
 			</summary>

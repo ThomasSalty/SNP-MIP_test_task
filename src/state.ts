@@ -70,9 +70,14 @@ const dbSlice = createSlice({
 				(client) => client.id !== action.payload.clientId
 			);
 		},
-		deletedReport(state, action: PayloadAction<{ reportId: number }>) {
+		deletedReport(
+			state,
+			action: PayloadAction<{ clientId: number; reportId: number }>
+		) {
 			state.reports = state.reports.filter(
-				(report) => report.id !== action.payload.reportId
+				(report) =>
+					report.clientId !== action.payload.clientId ||
+					report.id !== action.payload.reportId
 			);
 		}
 	}
