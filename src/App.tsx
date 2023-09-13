@@ -7,7 +7,7 @@ import {
 	type DB,
 	api,
 	useAppDispatch,
-	receivedDb,
+	receivedDbData,
 	dbInitialState
 } from "../src/state";
 
@@ -25,7 +25,7 @@ function App() {
 	const appDispatch = useAppDispatch();
 
 	useEffect(() => {
-		appDispatch(receivedDb(db));
+		appDispatch(receivedDbData(db));
 	}, [appDispatch, db]);
 
 	return (

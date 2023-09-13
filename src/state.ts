@@ -60,14 +60,14 @@ const dbSlice = createSlice({
 	name: "db",
 	initialState: dbInitialState,
 	reducers: {
-		receivedDb(state, action: PayloadAction<DB>) {
+		receivedDbData(state, action: PayloadAction<DB>) {
 			state.clients = action.payload.clients;
 			state.reports = action.payload.reports;
 			state.reportData = action.payload.reportData;
 		}
 	}
 });
-export const { receivedDb } = dbSlice.actions;
+export const { receivedDbData } = dbSlice.actions;
 
 export const store = configureStore({
 	reducer: {
