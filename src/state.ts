@@ -11,6 +11,8 @@ import {
 } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+import { getRandomId } from "./helpers/getRandomId";
+
 // Just a re-export from "react-redux".
 export { Provider } from "react-redux";
 
@@ -32,11 +34,11 @@ export const api = createApi({
 	})
 });
 
-type Client = {
+export type Client = {
 	id: number;
 	title: string;
 };
-type Report = {
+export type Report = {
 	id: number;
 	reportTitle: string;
 	clientId: number;
@@ -72,17 +74,38 @@ const dbSlice = createSlice({
 		},
 		deletedReport(
 			state,
-			action: PayloadAction<{ clientId: number; reportId: number }>
+			action: PayloadAction<{ clientId: number; reportId?: number }>
 		) {
 			state.reports = state.reports.filter(
 				(report) =>
 					report.clientId !== action.payload.clientId ||
 					report.id !== action.payload.reportId
 			);
+		},
+		addedClient(state) {
+			const randomId = getRandomId();
+			state.clients.push({
+				id: randomId,
+				title: `Client #${randomId}`
+			});
+		},
+		addedReportToClient(state, action: PayloadAction<{ clientId: number }>) {
+			const randomId = getRandomId();
+			state.reports.push({
+				id: randomId,
+				reportTitle: `Report #${randomId}`,
+				clientId: action.payload.clientId
+			});
 		}
 	}
 });
-export const { receivedDbData, deletedClient, deletedReport } = dbSlice.actions;
+export const {
+	receivedDbData,
+	deletedClient,
+	deletedReport,
+	addedClient,
+	addedReportToClient
+} = dbSlice.actions;
 
 export const store = configureStore({
 	reducer: {

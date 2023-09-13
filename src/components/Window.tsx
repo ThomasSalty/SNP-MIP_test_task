@@ -1,10 +1,15 @@
 import styles from "./window.module.scss";
 import CloseIcon from "../../public/close-icon.svg";
-import { deletedClient, deletedReport, useAppDispatch } from "../state";
+import {
+	addedReportToClient,
+	deletedClient,
+	deletedReport,
+	useAppDispatch
+} from "../state";
 
 interface WindowProps {
 	clientId: number;
-	reportId: number;
+	reportId?: number;
 	title: string;
 	isReport?: boolean;
 	children?: React.ReactNode;
@@ -19,6 +24,16 @@ function Window({
 }: WindowProps) {
 	const appDispatch = useAppDispatch();
 
+	const deleteReportOrClient = () =>
+		isReport
+			? appDispatch(deletedReport({ clientId, reportId }))
+			: appDispatch(deletedClient({ clientId }));
+
+	const addReportOrData = () =>
+		isReport
+			? console.log("add data")
+			: appDispatch(addedReportToClient({ clientId }));
+
 	return (
 		<details className={styles.details}>
 			<summary className={styles.summary}>
@@ -26,18 +41,16 @@ function Window({
 				<img
 					src={CloseIcon}
 					className={styles.closeIcon}
-					onClick={() =>
-						isReport
-							? appDispatch(deletedReport({ clientId, reportId }))
-							: appDispatch(deletedClient({ clientId }))
-					}
+					onClick={deleteReportOrClient}
 				/>
 			</summary>
 
 			<div className={styles.options}>
 				<div className={styles.windowHeader}>
 					<span>{`${title} ${isReport ? "data" : "reports"}`}</span>
-					<button>{`Add ${isReport ? "report" : "data"}`}</button>
+					<button onClick={addReportOrData}>
+						{`Add ${isReport ? "data" : "report"}`}
+					</button>
 				</div>
 				<div className={isReport ? styles.reportDataItems : ""}>{children}</div>
 			</div>
