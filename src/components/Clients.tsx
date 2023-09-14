@@ -1,4 +1,5 @@
 import Window from "./Window";
+import CloseIcon from "../assets/close-icon.svg";
 import {
 	getClients,
 	getFilteredClients,
@@ -45,6 +46,11 @@ function Clients() {
 						return (
 							<span key={data.id} className={styles.reportDataItem}>
 								<ChartComponent chartData={data.values} />
+								<img
+									src={CloseIcon}
+									className={styles.closeIcon}
+									// onClick={deleteReportOrClient}
+								/>
 							</span>
 						);
 					})}

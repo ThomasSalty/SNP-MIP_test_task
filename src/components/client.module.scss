@@ -7,5 +7,20 @@
 
 .reportDataItem {
 	height: 90px;
+	position: relative;
 	width: 90px;
+}
+
+.closeIcon {
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: scale 0.5s ease;
+	vertical-align: middle;
+	width: 15px;
+
+	&:hover {
+		scale: 1.2;
+	}
 }
