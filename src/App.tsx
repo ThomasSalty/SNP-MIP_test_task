@@ -15,7 +15,10 @@ import styles from "./app.module.scss";
 
 function App() {
 	const { useDbQuery } = api;
-	const { data, isUninitialized, isLoading, isSuccess } = useDbQuery({});
+	const { data, isUninitialized, isLoading, isSuccess } = useDbQuery(
+		{},
+		{ refetchOnMountOrArgChange: true }
+	);
 
 	const db = useMemo<DB>(
 		() => (isSuccess ? { ...data } : dbInitialState),
