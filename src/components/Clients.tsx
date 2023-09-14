@@ -1,8 +1,10 @@
 import Window from "./Window";
 import {
 	getClients,
+	getFilteredClients,
 	getReports,
 	getReportData,
+	getSearchQuery,
 	useAppSelector,
 	type Client
 } from "../state";
@@ -10,8 +12,12 @@ import styles from "./client.module.scss";
 
 function Clients() {
 	const clients = useAppSelector(getClients);
+	const filteredClients = useAppSelector(getFilteredClients);
 	const reports = useAppSelector(getReports);
 	const reportData = useAppSelector(getReportData);
+	const searchQuery = useAppSelector(getSearchQuery);
+
+	const clientsToShow = searchQuery ? filteredClients : clients;
 
 	const renderReportsForClient = (client: Client) => {
 		const clientReports = reports.filter(
@@ -41,10 +47,10 @@ function Clients() {
 
 	return (
 		<div className={styles.clientWrapper}>
-			{clients.length === 0 ? (
+			{clientsToShow.length === 0 ? (
 				<p>There are no clients in the database!</p>
 			) : (
-				clients.map((client) => (
+				clientsToShow.map((client) => (
 					<Window clientId={client.id} key={client.id} title={client.title}>
 						{renderReportsForClient(client)}
 					</Window>
