@@ -38,7 +38,7 @@ export type Report = {
 };
 type ReportData = {
 	id: number;
-	value: number;
+	values: number[];
 	reportId: number;
 };
 export type DB = {

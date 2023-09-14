@@ -78,67 +78,67 @@
 	"reportData": [
 		{
 			"id": 101,
-			"value": 123,
+			"values": [12, 19, 3, 5, 2, 3],
 			"reportId": 12345
 		},
 		{
 			"id": 102,
-			"value": 234,
+			"values": [12, 19, 3, 5, 2, 3],
 			"reportId": 12345
 		},
 		{
 			"id": 103,
-			"value": 345,
+			"values": [12, 19, 3, 5, 2, 3],
 			"reportId": 12345
 		},
 		{
 			"id": 104,
-			"value": 456,
+			"values": [12, 19, 3, 5, 2, 3],
 			"reportId": 12345
 		},
 		{
 			"id": 105,
-			"value": 123,
+			"values": [4, 12, 13, 1, 7, 24],
 			"reportId": 23456
 		},
 		{
 			"id": 106,
-			"value": 234,
+			"values": [4, 12, 13, 1, 7, 24],
 			"reportId": 23456
 		},
 		{
 			"id": 107,
-			"value": 345,
+			"values": [4, 12, 13, 1, 7, 24],
 			"reportId": 23456
 		},
 		{
 			"id": 108,
-			"value": 123,
+			"values": [7, 5, 21, 12, 15, 9],
 			"reportId": 34567
 		},
 		{
 			"id": 109,
-			"value": 234,
+			"values": [7, 5, 21, 12, 15, 9],
 			"reportId": 34567
 		},
 		{
 			"id": 110,
-			"value": 345,
+			"values": [7, 5, 21, 12, 15, 9],
 			"reportId": 34567
 		},
 		{
 			"id": 111,
-			"value": 123,
+			"values": [18, 22, 3, 8, 22, 17],
 			"reportId": 45678
 		},
 		{
 			"id": 112,
-			"value": 234,
+			"values": [18, 22, 3, 8, 22, 17],
 			"reportId": 45678
 		},
 		{
 			"id": 113,
-			"value": 345,
+			"values": [18, 22, 3, 8, 22, 17],
 			"reportId": 45678
 		}
 	]
