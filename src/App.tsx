@@ -1,7 +1,8 @@
 import { useEffect, useMemo } from "react";
 
-import Header from "./components/Header";
 import Clients from "./components/Clients";
+import Header from "./components/Header";
+import Loading from "./components/Loading";
 
 import {
 	type DB,
@@ -34,12 +35,7 @@ function App() {
 	return (
 		<div className={styles.container}>
 			<Header />
-
-			{isUninitialized || isLoading ? (
-				<div className={styles.spinner} />
-			) : (
-				<Clients />
-			)}
+			{isUninitialized || isLoading ? <Loading /> : <Clients />}
 		</div>
 	);
 }
