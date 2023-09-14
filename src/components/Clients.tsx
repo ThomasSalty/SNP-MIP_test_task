@@ -9,6 +9,7 @@ import {
 	type Client
 } from "../state";
 import styles from "./client.module.scss";
+import { getRandomChartComponent } from "../helpers/getRandomChartComponent";
 
 function Clients() {
 	const clients = useAppSelector(getClients);
@@ -38,9 +39,15 @@ function Clients() {
 			>
 				{reportData
 					.filter((data) => data.reportId === report.id)
-					.map((data) => (
-						<span key={data.id}>{data.value.toString()}</span>
-					))}
+					.map((data) => {
+						const ChartComponent = getRandomChartComponent();
+
+						return (
+							<span key={data.id} className={styles.reportDataItem}>
+								<ChartComponent chartData={data.values} />
+							</span>
+						);
+					})}
 			</Window>
 		));
 	};
