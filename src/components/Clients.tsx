@@ -83,7 +83,12 @@ function Clients() {
 				<p>There are no clients in the database!</p>
 			) : (
 				clientsToShow.map((client) => (
-					<Window clientId={client.id} key={client.id} title={client.title}>
+					<Window
+						clientId={client.id}
+						reportId={0}
+						key={client.id}
+						title={client.title}
+					>
 						{renderReportsForClient(client)}
 					</Window>
 				))

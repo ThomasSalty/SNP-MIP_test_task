@@ -1,6 +1,9 @@
+import { Children } from "react";
+
 import styles from "./window.module.scss";
 import CloseIcon from "../assets/close-icon.svg";
 import {
+	addedReportDataToReport,
 	addedReportToClient,
 	deletedClient,
 	deletedReport,
@@ -9,7 +12,7 @@ import {
 
 interface WindowProps {
 	clientId: number;
-	reportId?: number;
+	reportId: number;
 	title: string;
 	isReport?: boolean;
 	children?: React.ReactNode;
@@ -31,8 +34,10 @@ function Window({
 
 	const addReportOrData = () =>
 		isReport
-			? console.log("add data")
+			? appDispatch(addedReportDataToReport({ reportId }))
 			: appDispatch(addedReportToClient({ clientId }));
+
+	const isDisabled = isReport && Children.count(children) >= 12;
 
 	return (
 		<details className={styles.details}>
@@ -48,7 +53,11 @@ function Window({
 			<div className={styles.options}>
 				<div className={styles.windowHeader}>
 					<span>{`${title} ${isReport ? "data" : "reports"}`}</span>
-					<button onClick={addReportOrData}>
+					<button
+						onClick={addReportOrData}
+						disabled={isDisabled}
+						title={isDisabled ? "Max 12 data items are allowed!" : undefined}
+					>
 						{`Add ${isReport ? "data" : "report"}`}
 					</button>
 				</div>

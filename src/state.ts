@@ -12,6 +12,7 @@ import {
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { getRandomId } from "./helpers/getRandomId";
+import { generateRandomReportData } from "./helpers/getRandomReportData";
 
 // Just a re-export from "react-redux".
 export { Provider } from "react-redux";
@@ -108,6 +109,18 @@ const dbSlice = createSlice({
 				clientId: action.payload.clientId
 			});
 		},
+		addedReportDataToReport(
+			state,
+			action: PayloadAction<{ reportId: number }>
+		) {
+			const randomId = getRandomId();
+			const randomReportData = generateRandomReportData();
+			state.reportData.push({
+				id: randomId,
+				values: randomReportData,
+				reportId: action.payload.reportId
+			});
+		},
 		filteredClients(state, action: PayloadAction<{ searchQuery: string }>) {
 			state.filteredClients = state.clients.filter((client) =>
 				client.title
@@ -124,6 +137,7 @@ export const {
 	deletedReportData,
 	addedClient,
 	addedReportToClient,
+	addedReportDataToReport,
 	filteredClients
 } = dbSlice.actions;
 
