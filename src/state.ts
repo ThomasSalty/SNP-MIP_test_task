@@ -82,6 +82,16 @@ const dbSlice = createSlice({
 					report.id !== action.payload.reportId
 			);
 		},
+		deletedReportData(
+			state,
+			action: PayloadAction<{ reportId: number; reportDataId: number }>
+		) {
+			state.reportData = state.reportData.filter(
+				(data) =>
+					data.reportId !== action.payload.reportId ||
+					data.id !== action.payload.reportDataId
+			);
+		},
 		addedClient(state) {
 			const randomId = getRandomId();
 			state.clients.push({
@@ -111,6 +121,7 @@ export const {
 	receivedDbData,
 	deletedClient,
 	deletedReport,
+	deletedReportData,
 	addedClient,
 	addedReportToClient,
 	filteredClients

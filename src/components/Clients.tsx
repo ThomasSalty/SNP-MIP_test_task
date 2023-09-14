@@ -1,18 +1,23 @@
 import Window from "./Window";
 import CloseIcon from "../assets/close-icon.svg";
 import {
+	deletedReportData,
 	getClients,
 	getFilteredClients,
 	getReports,
 	getReportData,
 	getSearchQuery,
+	useAppDispatch,
 	useAppSelector,
-	type Client
+	type Client,
+	type Report
 } from "../state";
 import styles from "./client.module.scss";
 import { getRandomChartComponent } from "../helpers/getRandomChartComponent";
 
 function Clients() {
+	const appDispatch = useAppDispatch();
+
 	const clients = useAppSelector(getClients);
 	const filteredClients = useAppSelector(getFilteredClients);
 	const reports = useAppSelector(getReports);
@@ -20,6 +25,35 @@ function Clients() {
 	const searchQuery = useAppSelector(getSearchQuery);
 
 	const clientsToShow = searchQuery ? filteredClients : clients;
+
+	const deleteReportData = (reportId: number, reportDataId: number) => {
+		appDispatch(deletedReportData({ reportId, reportDataId }));
+	};
+
+	const renderReportDataForReport = (report: Report) => {
+		const reportDataItems = reportData.filter(
+			(data) => data.reportId === report.id
+		);
+
+		if (reportDataItems.length === 0) {
+			return <p>{`${report.reportTitle} has no data!`}</p>;
+		}
+
+		return reportDataItems.map((data) => {
+			const ChartComponent = getRandomChartComponent();
+
+			return (
+				<span key={data.id} className={styles.reportDataItem}>
+					<ChartComponent chartData={data.values} />
+					<img
+						src={CloseIcon}
+						className={styles.closeIcon}
+						onClick={() => deleteReportData(report.id, data.id)}
+					/>
+				</span>
+			);
+		});
+	};
 
 	const renderReportsForClient = (client: Client) => {
 		const clientReports = reports.filter(
@@ -38,22 +72,7 @@ function Clients() {
 				title={report.reportTitle}
 				isReport
 			>
-				{reportData
-					.filter((data) => data.reportId === report.id)
-					.map((data) => {
-						const ChartComponent = getRandomChartComponent();
-
-						return (
-							<span key={data.id} className={styles.reportDataItem}>
-								<ChartComponent chartData={data.values} />
-								<img
-									src={CloseIcon}
-									className={styles.closeIcon}
-									// onClick={deleteReportOrClient}
-								/>
-							</span>
-						);
-					})}
+				{renderReportDataForReport(report)}
 			</Window>
 		));
 	};
