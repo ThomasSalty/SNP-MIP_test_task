@@ -6,7 +6,9 @@ import {
 	LineElement,
 	Title,
 	Tooltip,
-	Legend
+	Legend,
+	type ChartOptions,
+	type ChartData
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -25,11 +27,11 @@ interface LineChartProps {
 }
 
 export function LineChart({ chartData }: LineChartProps) {
-	const options = {
+	const options: ChartOptions<"line"> = {
 		maintainAspectRatio: false
 	};
 
-	const data = {
+	const data: ChartData<"line", number[], unknown> = {
 		labels: chartData.map((_, index) => `${index + 1}`),
 		datasets: [
 			{

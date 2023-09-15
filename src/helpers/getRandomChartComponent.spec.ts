@@ -1,4 +1,5 @@
 import { describe, expect, test } from "vitest";
+
 import { getRandomChartComponent } from "./getRandomChartComponent";
 
 describe("getRandomChartComponent helper function", () => {

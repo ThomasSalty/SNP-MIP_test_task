@@ -1,4 +1,10 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import {
+	Chart as ChartJS,
+	ArcElement,
+	Tooltip,
+	Legend,
+	type ChartData
+} from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -8,7 +14,7 @@ interface DoughnutChartProps {
 }
 
 export function DoughnutChart({ chartData }: DoughnutChartProps) {
-	const data = {
+	const data: ChartData<"doughnut", number[], unknown> = {
 		labels: [],
 		datasets: [
 			{

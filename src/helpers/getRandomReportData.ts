@@ -1,4 +1,4 @@
-export function generateRandomReportData(): number[] {
+export function getRandomReportData(): number[] {
 	const length = 6;
 	const min = 0;
 	const max = 25;

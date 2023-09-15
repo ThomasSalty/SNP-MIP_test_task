@@ -2,21 +2,10 @@ import { describe, expect, test, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import Clients from "./Clients";
-import {
-	type Client,
-	type Report,
-	type ReportData,
-	Provider,
-	store,
-	deletedReportData
-} from "../state";
+import { type DB, Provider, store, deletedReportData } from "../state";
 
 type StateMock = {
-	db: {
-		clients: Client[];
-		reports: Report[];
-		reportData: ReportData[];
-	};
+	db: Omit<DB, "filteredClients">;
 	search: { searchQuery: string };
 };
 

@@ -1,4 +1,9 @@
-import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
+import {
+	Chart as ChartJS,
+	ArcElement,
+	Tooltip,
+	type ChartData
+} from "chart.js";
 import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip);
@@ -8,7 +13,7 @@ interface PieChartProps {
 }
 
 export function PieChart({ chartData }: PieChartProps) {
-	const data = {
+	const data: ChartData<"pie", number[], unknown> = {
 		labels: [],
 		datasets: [
 			{

@@ -1,8 +1,10 @@
-import { AreaChart } from "../components/charts/AreaChart";
-import { BarChart } from "../components/charts/BarChart";
-import { DoughnutChart } from "../components/charts/DoughnutChart";
-import { LineChart } from "../components/charts/LineChart";
-import { PieChart } from "../components/charts/PieChart";
+import {
+	AreaChart,
+	BarChart,
+	DoughnutChart,
+	LineChart,
+	PieChart
+} from "../components/charts";
 
 export const componentMap = {
 	PieChart,

@@ -1,0 +1,19 @@
+@use "../../styles/colors.scss";
+
+.spinner {
+	animation: spin 1s linear infinite;
+	border-radius: 50%;
+	border-top: 2.4px solid colors.$main-accent;
+	height: 40px;
+	margin: 30px auto;
+	width: 40px;
+}
+
+@keyframes spin {
+	0% {
+		rotate: 0deg;
+	}
+	100% {
+		rotate: 360deg;
+	}
+}

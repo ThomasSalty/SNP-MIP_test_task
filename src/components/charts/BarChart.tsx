@@ -5,7 +5,9 @@ import {
 	BarElement,
 	Title,
 	Tooltip,
-	Legend
+	Legend,
+	type ChartOptions,
+	type ChartData
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
@@ -23,11 +25,11 @@ interface BarChartProps {
 }
 
 export function BarChart({ chartData }: BarChartProps) {
-	const options = {
+	const options: ChartOptions<"bar"> = {
 		maintainAspectRatio: false
 	};
 
-	const data = {
+	const data: ChartData<"bar", number[], unknown> = {
 		labels: chartData.map((_, index) => `${index + 1}`),
 		datasets: [
 			{

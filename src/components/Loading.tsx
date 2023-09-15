@@ -1,4 +1,4 @@
-import styles from "../app.module.scss";
+import styles from "./loading.module.scss";
 
 function Loading() {
 	return <div className={styles.spinner} data-testid="spinner" />;

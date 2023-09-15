@@ -37,7 +37,7 @@ function Window({
 			? appDispatch(addedReportDataToReport({ reportId }))
 			: appDispatch(addedReportToClient({ clientId }));
 
-	const isDisabled = isReport && Children.count(children) >= 12;
+	const isAddDataButtonDisabled = isReport && Children.count(children) >= 12;
 
 	return (
 		<details className={styles.details}>
@@ -55,8 +55,12 @@ function Window({
 					<span>{`${title} ${isReport ? "data" : "reports"}`}</span>
 					<button
 						onClick={addReportOrData}
-						disabled={isDisabled}
-						title={isDisabled ? "Max 12 data items are allowed!" : undefined}
+						disabled={isAddDataButtonDisabled}
+						title={
+							isAddDataButtonDisabled
+								? "Max 12 data items are allowed!"
+								: undefined
+						}
 					>
 						{`Add ${isReport ? "data" : "report"}`}
 					</button>
