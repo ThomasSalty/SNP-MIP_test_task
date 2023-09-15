@@ -37,7 +37,7 @@ export type Report = {
 	reportTitle: string;
 	clientId: number;
 };
-type ReportData = {
+export type ReportData = {
 	id: number;
 	values: number[];
 	reportId: number;
