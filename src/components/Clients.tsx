@@ -64,10 +64,15 @@ function Clients() {
 			const ChartComponent = getChartComponentForReportData(data.id.toString());
 
 			return (
-				<span key={data.id} className={styles.reportDataItem}>
+				<span
+					key={data.id}
+					className={styles.reportDataItem}
+					data-testid="chart-component-container"
+				>
 					<ChartComponent chartData={data.values} />
 					<img
 						src={CloseIcon}
+						alt="RemoveButton"
 						className={styles.closeIcon}
 						onClick={() => deleteReportData(report.id, data.id)}
 					/>
