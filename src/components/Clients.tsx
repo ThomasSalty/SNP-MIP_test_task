@@ -32,12 +32,12 @@ function Clients() {
 
 	const deleteReportData = (reportId: number, reportDataId: number) => {
 		appDispatch(deletedReportData({ reportId, reportDataId }));
-		localStorage.removeItem(reportDataId.toString());
+		sessionStorage.removeItem(reportDataId.toString());
 	};
 
 	const getChartComponentForReportData = (reportDataId: string) => {
 		let ChartComponent;
-		const componentName = localStorage.getItem(
+		const componentName = sessionStorage.getItem(
 			reportDataId
 		) as ComponentName | null;
 
@@ -45,7 +45,7 @@ function Clients() {
 			ChartComponent = componentMap[componentName];
 		} else {
 			ChartComponent = getRandomChartComponent();
-			localStorage.setItem(reportDataId, ChartComponent.name);
+			sessionStorage.setItem(reportDataId, ChartComponent.name);
 		}
 
 		return ChartComponent;
