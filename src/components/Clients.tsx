@@ -13,7 +13,11 @@ import {
 	type Report
 } from "../state";
 import styles from "./client.module.scss";
-import { getRandomChartComponent } from "../helpers/getRandomChartComponent";
+import {
+	type ComponentName,
+	componentMap,
+	getRandomChartComponent
+} from "../helpers/getRandomChartComponent";
 
 function Clients() {
 	const appDispatch = useAppDispatch();
@@ -28,6 +32,23 @@ function Clients() {
 
 	const deleteReportData = (reportId: number, reportDataId: number) => {
 		appDispatch(deletedReportData({ reportId, reportDataId }));
+		localStorage.removeItem(reportDataId.toString());
+	};
+
+	const getChartComponentForReportData = (reportDataId: string) => {
+		let ChartComponent;
+		const componentName = localStorage.getItem(
+			reportDataId
+		) as ComponentName | null;
+
+		if (componentName) {
+			ChartComponent = componentMap[componentName];
+		} else {
+			ChartComponent = getRandomChartComponent();
+			localStorage.setItem(reportDataId, ChartComponent.name);
+		}
+
+		return ChartComponent;
 	};
 
 	const renderReportDataForReport = (report: Report) => {
@@ -40,7 +61,7 @@ function Clients() {
 		}
 
 		return reportDataItems.map((data) => {
-			const ChartComponent = getRandomChartComponent();
+			const ChartComponent = getChartComponentForReportData(data.id.toString());
 
 			return (
 				<span key={data.id} className={styles.reportDataItem}>
