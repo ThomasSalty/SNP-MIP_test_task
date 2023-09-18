@@ -20,7 +20,7 @@ describe("ErrorBoundary component", () => {
 		console.error = vi.fn();
 
 		const TestComponent: React.FC = () => {
-			throw new Error("Test Error");
+			throw new Error();
 		};
 
 		render(
