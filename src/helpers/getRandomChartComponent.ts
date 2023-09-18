@@ -16,11 +16,10 @@ export const componentMap = {
 export type ComponentName = keyof typeof componentMap;
 
 export function getRandomChartComponent() {
-	const componentNames = Object.keys(componentMap);
+	const componentNames = Object.keys(componentMap) as ComponentName[];
 
-	const randomComponentName = componentNames[
-		Math.floor(Math.random() * componentNames.length)
-	] as ComponentName;
+	const randomComponentName =
+		componentNames[Math.floor(Math.random() * componentNames.length)];
 
 	return componentMap[randomComponentName];
 }
