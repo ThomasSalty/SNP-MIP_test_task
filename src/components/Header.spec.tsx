@@ -38,8 +38,8 @@ describe("Header component", () => {
 
 		fireEvent.click(screen.getByRole("button", { name: "New Client" }));
 
-		// "addNewClient" fn has 2 appDispatch calls
-		// and they get called once on the first render and then when clicking on the "New Client" button.
+		// The Header component has 2 appDispatch calls that run on the first render +
+		// "addNewClient" fn has 2 appDispatch calls and they get called when clicking on the "New Client" button.
 		expect(mockAppDispatch).toHaveBeenCalledTimes(4);
 
 		expect(mockAppDispatch).toHaveBeenCalledWith(addedClient());
