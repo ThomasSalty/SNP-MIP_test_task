@@ -14,10 +14,18 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 		this.state = { hasError: false };
 	}
 
+	static getDerivedStateFromError(/* error: Error */) {
+		return { hasError: true };
+	}
+
 	componentDidCatch(error: Error, errorInfo: ErrorInfo) {
 		// eslint-disable-next-line no-console
 		console.error(error, errorInfo);
-		this.setState({ hasError: true });
+
+		/* "In the past, it was common to call setState inside componentDidCatch in order to update the UI
+		and display the fallback error message. This is deprecated in favor of defining static getDerivedStateFromError."
+		https://react.dev/reference/react/Component#componentdidcatch-caveats */
+		// this.setState({ hasError: true });
 	}
 
 	render() {
